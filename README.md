@@ -1,3 +1,7 @@
+## Build status
+![Build status](https://github.com/luizgustavocosta/16-bits-spring/workflows/Java%20CI%20with%20Maven/badge.svg) 
+
+
 # 16-bits-spring
 Project to store the youtube channel code
 
