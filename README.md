@@ -1,8 +1,7 @@
 ## Build status
 ![Build status](https://github.com/luizgustavocosta/16-bits-spring/workflows/Java%20CI%20with%20Maven/badge.svg) 
 
-[![Quality gate](https://sonarcloud.io/api/project_badges/quality_gate?project=luizgustavocosta_16-bits-spring)](https://sonarcloud.io/dashboard?id=luizgustavocosta_16-bits-spring)
-
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=luizgustavocosta_16-bits-spring&metric=alert_status)](https://sonarcloud.io/dashboard?id=luizgustavocosta_16-bits-spring)
 
 # 16-bits-spring
 Project to store the youtube channel code
