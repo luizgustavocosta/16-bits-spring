@@ -14,22 +14,6 @@
     <name>spring</name>
     <description>Demo project for Spring Boot</description>
 
-    <properties>
-        <java.version>11</java.version>
-        <jacoco.version>0.8.3</jacoco.version>
-<!--        Cloud-->
-        <sonar.projectKey>luizgustavocosta_16-bits-spring</sonar.projectKey>
-        <sonar.moduleKey>com.costa.luiz.16bits:spring</sonar.moduleKey>
-        <sonar.organization>luizgustavocosta</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-<!--        Local-->
-<!--        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>-->
-<!--        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>-->
-<!--        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>-->
-<!--        <sonar.language>java</sonar.language>-->
-<!--        <sonar.login>admin</sonar.login>-->
-<!--        <sonar.password></sonar.password>-->
-    </properties>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -91,6 +75,21 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+    <properties>
+        <java.version>11</java.version>
+        <jacoco.version>0.8.3</jacoco.version>
+        <!--        Cloud-->
+        <sonar.projectKey>luizgustavocosta_16-bits-spring</sonar.projectKey>
+        <sonar.organization>luizgustavocosta</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <!--        Local-->
+        <!--        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>-->
+        <!--        <sonar.dynamicAnalysis>reuseReports</sonar.dynamicAnalysis>-->
+        <!--        <sonar.jacoco.reportPath>${project.basedir}/../target/jacoco.exec</sonar.jacoco.reportPath>-->
+        <!--        <sonar.language>java</sonar.language>-->
+        <!--        <sonar.login>admin</sonar.login>-->
+        <!--        <sonar.password></sonar.password>-->
+    </properties>
 
     <build>
         <plugins>
