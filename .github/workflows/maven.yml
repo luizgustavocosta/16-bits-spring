@@ -40,4 +40,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: cd base && mvn -B verify -Dsonar.moduleKey=com.costa.luiz.16bits:spring -Dsonar.organization=luizgustavocosta -Dsonar.projectKey=luizgustavocosta_16-bits -Dsonar.host.url=https://sonarcloud.io org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      run: cd base && mvn -B verify -Dsonar.moduleKey=com.costa.luiz.16bits:spring -Dsonar.organization=luizgustavocosta -Dsonar.projectKey=luizgustavocosta_16-bits-spring -Dsonar.host.url=https://sonarcloud.io org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
