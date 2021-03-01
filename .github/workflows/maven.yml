@@ -24,12 +24,14 @@ jobs:
         java-version: 11
     - name: Build with Maven
       run: mvn clean package
+
     - name: Cache SonarCloud packages
       uses: actions/cache@v1
       with:
         path: ~/.sonar/cache
         key: ${{ runner.os }}-sonar
         restore-keys: ${{ runner.os }}-sonar
+
     - name: Cache Maven packages
       uses: actions/cache@v1
       with:
@@ -40,4 +42,4 @@ jobs:
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-      run: mvn -B verify -Dsonar.organization=luizgustavocosta -Dsonar.host.url=https://sonarcloud.io org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
+      run: mvn -B verify -Dsonar.organization=luizgustavocosta -Dsonar.projectkey=luizgustavocosta_16-bits-spring -Dsonar.host.url=https://sonarcloud.io org.sonarsource.scanner.maven:sonar-maven-plugin:sonar
