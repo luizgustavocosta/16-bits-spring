@@ -16,13 +16,13 @@ For it, please access the [SonarQube page](https://docs.sonarqube.org/latest/set
 ## Using Maven
 Inside the project the configuration for Sonar is on place, and execute the following commands
 
-```
+```console
 mvn clean install
 ```  
 
 And then
 
-```
+```console
 mvn sonar:sonar
 ```
 
@@ -35,7 +35,7 @@ Java Code Coverage
 
 For it, please execute the commands
 
-```
+```bash
 mvn clean test
 ```
 
@@ -43,7 +43,7 @@ The report will be generated on the folder /target/site/index.html
 
 And then
 
-```
+```console
 mvn jacoco:report
 ```
 Open this page using the Web browser and enjoy >D
