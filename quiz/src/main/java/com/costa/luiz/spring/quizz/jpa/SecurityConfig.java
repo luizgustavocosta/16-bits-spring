@@ -1,4 +1,4 @@
-package com.costa.luiz.spring.config;
+package com.costa.luiz.spring.quizz.jpa;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -17,8 +17,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .authorizeRequests()
                 .antMatchers("/api/**").permitAll()
-                .antMatchers("/delete/**").hasRole("MANAGER")
-                .antMatchers("/add").hasRole("MANAGER")
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().permitAll().and() // Sent to browser
