@@ -11,4 +11,9 @@
     </parent>
 
     <artifactId>quiz</artifactId>
+
+    <properties>
+        <sonar.projectKey>luizgustavocosta_16-bits-spring-${project.groupId}:${project.artifactId}</sonar.projectKey>
+    </properties>
+
 </project>

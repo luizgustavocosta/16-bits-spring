@@ -9,8 +9,8 @@
         <artifactId>spring</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-
     <artifactId>hello-world</artifactId>
-
-
+    <properties>
+        <sonar.projectKey>luizgustavocosta_16-bits-spring-${project.groupId}:${project.artifactId}</sonar.projectKey>
+    </properties>
 </project>
