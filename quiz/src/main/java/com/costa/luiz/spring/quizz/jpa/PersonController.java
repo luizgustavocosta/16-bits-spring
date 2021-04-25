@@ -16,7 +16,8 @@ public class PersonController {
 
     @PostMapping
     public Person createPersonBy(@RequestBody String name) {
-        return service.create(name);
+        Person person = service.create(name);
+        return service.findOne(person.getId());
     }
 
     @GetMapping

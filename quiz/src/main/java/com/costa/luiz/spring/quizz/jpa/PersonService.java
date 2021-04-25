@@ -21,11 +21,11 @@ public class PersonService {
         this.repository = repository;
     }
 
-//    @Transactional
+    @Transactional
     public Person create(String name) {
         log.info("Has transaction active? {}", TransactionSynchronizationManager.isActualTransactionActive());
         final Person person = repository.save(new Person(name));
-        person.setName("Replace the name at " + LocalDateTime.now());
+        person.setName("New name at " + LocalDateTime.now());
         return person;
     }
 
@@ -33,6 +33,10 @@ public class PersonService {
         List<Person> persons = new ArrayList<>();
         repository.findAll().iterator().forEachRemaining(persons::add);
         return persons;
+    }
+
+    public Person findOne(Integer id) {
+        return repository.findById(id).orElseThrow(IllegalStateException::new);
     }
 }
 
