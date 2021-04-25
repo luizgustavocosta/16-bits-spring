@@ -1,37 +1,27 @@
 package com.costa.luiz.spring.quizz.jpa;
 
-import org.springframework.http.MediaType;
-import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController()
 @RequestMapping("/api/quiz/transaction")
 public class PersonController {
 
     private final PersonService service;
-    private final OtherPersonService innerService;
 
-    public PersonController(PersonService service, OtherPersonService innerService) {
+    public PersonController(PersonService service) {
         this.service = service;
-        this.innerService = innerService;
     }
 
-    @GetMapping(produces = {MediaType.APPLICATION_JSON_VALUE})
-    public String hello() {
-        return "Hello World";
+    @PostMapping
+    public Person createPersonBy(@RequestBody String name) {
+        return service.create(name);
     }
 
-    @GetMapping(value = "{use}/{name}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    @GetMapping
     @ResponseBody
-    public Person createPersonBy(@PathVariable boolean use,
-                                 @PathVariable String name) {
-        Person person = null;
-        if (use) {
-            return service.createUsingTransaction(name);
-        } else {
-            return innerService.create(name);
-        }
+    public List<Person> allPeople() {
+        return service.findAll();
     }
-
-
 }

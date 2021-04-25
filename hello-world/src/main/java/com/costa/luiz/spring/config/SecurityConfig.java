@@ -14,15 +14,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
-        http
-                .authorizeRequests()
+//        http
+//                .authorizeRequests()
 //                .antMatchers("/api/**").permitAll()
-                .antMatchers("/delete/**").hasRole("MANAGER")
-                .antMatchers("/add").hasRole("MANAGER")
-                .anyRequest().authenticated()
-                .and()
-                .formLogin().permitAll().and() // Sent to browser
-                .logout().permitAll(); // Allow everyone does the logout
+//                .antMatchers("/delete/**").hasRole("MANAGER")
+//                .antMatchers("/add").hasRole("MANAGER")
+//                .anyRequest().authenticated()
+//                .and()
+//                .formLogin().permitAll().and() // Sent to browser
+//                .logout().permitAll(); // Allow everyone does the logout
     }
 
     @Bean

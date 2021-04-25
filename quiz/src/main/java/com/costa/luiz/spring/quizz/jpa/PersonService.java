@@ -1,45 +1,32 @@
 package com.costa.luiz.spring.quizz.jpa;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+import org.springframework.transaction.support.TransactionSynchronizationManager;
 
-import javax.transaction.Transactional;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.UUID;
-
 
 @Service
 public class PersonService {
+
+    private static final Logger log = LoggerFactory.getLogger(PersonService.class);
+
     private final PersonRepository repository;
 
     PersonService(PersonRepository repository) {
         this.repository = repository;
     }
 
-    //        @Transactional
-    //javax.transaction.Transactional or  org.springframework.transaction.annotation.Transactional => Lana
-    // Without Transactional annotation => Larry
+//    @Transactional
     public Person create(String name) {
-        Person newPerson = new Person(name);
-        final Person person = repository.save(newPerson);
-        createNewName(name, person);
+        log.info("Has transaction active? {}", TransactionSynchronizationManager.isActualTransactionActive());
+        final Person person = repository.save(new Person(name));
+        person.setName("Replace the name at " + LocalDateTime.now());
         return person;
-    }
-
-    @Transactional
-    public Person createUsingTransaction(String name) {
-        Person newPerson = new Person(name);
-        final Person person = repository.save(newPerson);
-        createNewName(name, person);
-        return person;
-    }
-
-    private void createNewName(String name, Person person) {
-        person.setName("name replaced by " + UUID.randomUUID().toString().substring(0, 10));
-    }
-
-    public Person findOne(Integer id) {
-        return repository.findById(id).orElse(null);
     }
 
     public List<Person> findAll() {
