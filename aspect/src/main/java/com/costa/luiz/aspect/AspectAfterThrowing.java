@@ -12,17 +12,17 @@ import java.time.LocalDateTime;
 @Component
 public class AspectAfterThrowing {
 
-    private final Logger LOGGER = LoggerFactory.getLogger(AspectAfterThrowing.class);
+    private final Logger logger = LoggerFactory.getLogger(AspectAfterThrowing.class);
 
-    @AfterThrowing(pointcut = "execution(* com.costa.luiz.aspect.Customer.*(..))", throwing = "exception")
+    @AfterThrowing(pointcut = "execution(* com.costa.luiz.aspect.CustomerService.*(..))", throwing = "exception")
     public void logAfterThrowingAllMethods(RuntimeException exception) {
-        LOGGER.info("One way to catch the Exception");
-        LOGGER.info(exception.getMessage()+ " at "+ LocalDateTime.now());
+        logger.info("One way to catch the Exception");
+        logger.info("{} at {}", exception.getMessage(), LocalDateTime.now());
     }
 
-    @AfterThrowing ("execution(* com.costa.luiz.aspect.Customer.*(..)   )")
+    @AfterThrowing ("execution(* com.costa.luiz.aspect.CustomerService.*(..)   )")
     public void logAfterThrowingAllMethods() {
-        //  Havy @AfterThrowing(pointcut = "execution(public * *(..))", throwing = "ex")
-        LOGGER.info("--------- at "+ LocalDateTime.now());
+        //  Heavy @AfterThrowing(pointcut = "execution(public * *(..))", throwing = "ex")
+        logger.info("{} {}","--------- at ",LocalDateTime.now());
     }
 }
