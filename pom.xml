@@ -19,6 +19,7 @@
         <module>hello-world</module>
         <module>quiz</module>
         <module>aspect</module>
+        <module>e-mail</module>
     </modules>
 
     <dependencies>
