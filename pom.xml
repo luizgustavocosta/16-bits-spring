@@ -20,6 +20,7 @@
         <module>quiz</module>
         <module>aspect</module>
         <module>e-mail</module>
+        <module>stream-list</module>
     </modules>
 
     <dependencies>
