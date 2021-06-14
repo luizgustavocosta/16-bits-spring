@@ -26,7 +26,7 @@ public class ClientResource {
     }
 
     @GetMapping("/stream")
-    ResponseEntity<Stream<Client>> findAllInStreamMode() {
-        return new ResponseEntity(service.findAll(), HttpStatus.OK);
+    Stream<Client> findAllInStreamMode() {
+        return service.readAll();
     }
 }

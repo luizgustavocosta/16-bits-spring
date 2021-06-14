@@ -21,6 +21,8 @@
         <module>aspect</module>
         <module>e-mail</module>
         <module>stream-list</module>
+        <module>multi-tenancy</module>
+        <module>db-cockroach</module>
     </modules>
 
     <dependencies>

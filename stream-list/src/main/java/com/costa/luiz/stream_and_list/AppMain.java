@@ -29,7 +29,7 @@ public class AppMain {
     ApplicationRunner applicationRunner(ClientRepository repository) {
         List<Client> clients = new ArrayList<>();
         return args -> {
-            IntStream.rangeClosed(0, 300_000)
+            IntStream.rangeClosed(0, 10)
                     .forEach(value -> clients.add(Client.ClientBuilder.aClient().withName("Person "+value).build()));
             repository.saveAll(clients);
             LOGGER.info("All clients saved");

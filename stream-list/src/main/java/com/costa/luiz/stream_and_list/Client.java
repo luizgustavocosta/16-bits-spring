@@ -1,10 +1,12 @@
 package com.costa.luiz.stream_and_list;
 
+import javax.persistence.Cacheable;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 @Entity
+@Cacheable(false)
 public class Client {
 
     @Id

@@ -1,6 +1,7 @@
 package com.costa.luiz.stream_and_list;
 
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.stream.Stream;
 
@@ -17,6 +18,7 @@ public class ClientService {
         return repository.findAll();
     }
 
+    @Transactional
     Stream<Client> readAll() {
         return repository.findAllByStream();
     }
