@@ -12,4 +12,8 @@ public class BankService {
     public BankService(BankRepository repository) {
         this.repository = repository;
     }
+
+    Iterable<Account> findAll() {
+        return repository.findAll();
+    }
 }
