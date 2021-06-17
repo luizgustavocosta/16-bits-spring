@@ -8,26 +8,37 @@ import java.math.BigDecimal;
 public class Account {
 
     @Id
+    @Column
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private Integer id;
+    private Long id;
+
+    @Column(length = 25, nullable = false)
     private BigDecimal balance;
+
+    @Column(length = 128, nullable = false, unique = true)
+    private String name;
+
+    @Column(length = 25, nullable = false)
+    @Enumerated(EnumType.STRING)
+    private AccountType type;
 
     public Account() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public BigDecimal getBalance() {
         return balance;
     }
 
-    public void setBalance(BigDecimal balance) {
-        this.balance = balance;
+    public String getName() {
+        return name;
+    }
+
+    public AccountType getType() {
+        return type;
     }
 }
+

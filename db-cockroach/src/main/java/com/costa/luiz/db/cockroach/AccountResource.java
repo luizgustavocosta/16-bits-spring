@@ -19,7 +19,7 @@ public class AccountResource {
         return null;
     }
 
-    @GetMapping
+    @GetMapping("findall")
     public Iterable<Account> findAll() {
         return service.findAll();
     }
