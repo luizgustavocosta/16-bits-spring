@@ -1,13 +1,13 @@
 spring:
   output:
     ansi:
-      enabled: ALWAYS
+      enabled: always
 
   liquibase:
     change-log: classpath:db/changelog-master.xml
     default-schema:
     drop-first: false
-    contexts: crdb
+    contexts: default
     enabled: true
 
   datasource:
@@ -24,5 +24,7 @@ spring:
       hibernate:
         dialect: org.hibernate.dialect.CockroachDB201Dialect
     show-sql: false
+    hibernate:
+      ddl-auto: none
 server:
   port: 9090

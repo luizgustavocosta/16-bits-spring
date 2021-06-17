@@ -55,7 +55,7 @@ public class AppMain implements CommandLineRunner {
 
         Deque<Future<Integer>> futures = new ArrayDeque<>();
 
-        for (int i = 0; i < concurrency; i++) {
+        for (int i = 0; i < 0; i++) {
             Future<Integer> future = executorService.submit(() -> {
                 RestTemplate template = new RestTemplate();
                 int errors = 0;

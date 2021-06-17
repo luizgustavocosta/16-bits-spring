@@ -27,6 +27,12 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.19.Final</version>
         </dependency>
+        <dependency>
+            <groupId>org.liquibase</groupId>
+            <artifactId>liquibase-core</artifactId>
+            <version>3.8.9</version>
+            <scope>runtime</scope>
+        </dependency>
     </dependencies>
 
     <parent>

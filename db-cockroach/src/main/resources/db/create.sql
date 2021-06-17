@@ -1,4 +1,4 @@
-create table account
+create table accounts
 (
     id      int            not null primary key default unique_rowid(),
     balance numeric(19, 2) not null,

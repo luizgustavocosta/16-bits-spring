@@ -13,25 +13,25 @@
     </changeSet>
 
     <changeSet id="2" author="luiz" context="default">
-        <insert tableName="account">
+        <insert tableName="accounts">
             <column name="id">1</column>
             <column name="name">Alice</column>
             <column name="balance" valueNumeric="500.00"/>
             <column name="type">ASSET</column>
         </insert>
-        <insert tableName="account">
+        <insert tableName="accounts">
             <column name="id">2</column>
             <column name="name">Bob</column>
             <column name="balance" valueNumeric="500.00"/>
             <column name="type">EXPENSE</column>
         </insert>
-        <insert tableName="account">
+        <insert tableName="accounts">
             <column name="id">3</column>
             <column name="name">Bobby Tables</column>
             <column name="balance" valueNumeric="500.00"/>
             <column name="type">ASSET</column>
         </insert>
-        <insert tableName="account">
+        <insert tableName="accounts">
             <column name="id">4</column>
             <column name="name">Doris</column>
             <column name="balance" valueNumeric="500.00"/>
