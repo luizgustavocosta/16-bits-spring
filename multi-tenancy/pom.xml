@@ -11,5 +11,8 @@
 
     <artifactId>multi-tenancy</artifactId>
 
+    <properties>
+        <sonar.projectKey>luizgustavocosta_16-bits-spring-${project.groupId}:${project.artifactId}</sonar.projectKey>
+    </properties>
 
 </project>
