@@ -4,7 +4,7 @@ public enum Continent {
 
     AFRICA,
     ASIA,
-    ANTARCTICA,
+    ANTARCTIC,
     AUSTRALIA,
     EUROPE,
     NORTH_AMERICA,
