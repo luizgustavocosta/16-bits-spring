@@ -1,3 +1,4 @@
+
 spring:
   liquibase:
     change-log: classpath:db/changelog-master.xml
@@ -18,3 +19,5 @@ spring:
   h2:
     console:
       enabled: true
+server:
+  port: 8092
