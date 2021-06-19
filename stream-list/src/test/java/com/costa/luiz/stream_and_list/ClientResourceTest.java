@@ -26,15 +26,5 @@ class ClientResourceTest {
     void byList() {
         LocalDateTime start = LocalDateTime.now();
         controller.findAll();
-        System.out.println("Duration.between(start, LocalDateTime.now()) = " + Duration.between(start, LocalDateTime.now()));
-    }
-
-    @Test
-    void byStream() {
-        final LocalDateTime start = LocalDateTime.now();
-
-        controller.findAllInStreamMode();
-
-        System.out.println("Duration.between(start, LocalDateTime.now()) = " + Duration.between(start, LocalDateTime.now()));
     }
 }

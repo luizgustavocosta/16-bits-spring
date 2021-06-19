@@ -18,7 +18,7 @@ public class ClientService {
         return repository.findAll();
     }
 
-    @Transactional
+    @Transactional(readOnly = true)
     Stream<Client> readAll() {
         return repository.findAllByStream();
     }
