@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1" author="luiz" context="default">
+        <validCheckSum>ANY</validCheckSum>
+        <sqlFile path="db/create.sql"/>
+    </changeSet>
+
+    <changeSet id="2" author="luiz" context="default">
+        <insert tableName="country">
+            <column name="id">1</column>
+            <column name="name">Brazil</column>
+            <column name="code">BR</column>
+            <column name="continent">SOUTH_AMERICA</column>
+        </insert>
+        <insert tableName="country">
+            <column name="id">2</column>
+            <column name="name">Spain</column>
+            <column name="code">ES</column>
+            <column name="continent">EUROPE</column>
+        </insert>
+        <insert tableName="country">
+            <column name="id">3</column>
+            <column name="name">United Kingdom</column>
+            <column name="code">UK</column>
+            <column name="continent">EUROPE</column>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

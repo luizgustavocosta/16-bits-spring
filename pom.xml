@@ -23,7 +23,30 @@
         <module>stream-list</module>
         <module>multi-tenancy</module>
         <module>db-cockroach</module>
+        <module>how-2-lombok</module>
     </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.20</version>
+                <scope>provided</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>3.8.9</version>
+                <scope>runtime</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.mapstruct</groupId>
+                <artifactId>mapstruct</artifactId>
+                <version>${org.mapstruct.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
     <dependencies>
         <dependency>
@@ -89,6 +112,7 @@
     <properties>
         <java.version>11</java.version>
         <jacoco.version>0.8.3</jacoco.version>
+        <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
         <!--        Cloud-->
         <sonar.projectKey>luizgustavocosta_16-bits-spring</sonar.projectKey>
         <sonar.organization>luizgustavocosta</sonar.organization>
