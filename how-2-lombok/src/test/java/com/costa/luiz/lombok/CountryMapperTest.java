@@ -28,4 +28,10 @@ class CountryMapperTest {
                 .ignoringFields("continent")
                 .isEqualTo(countryDTO);
     }
+
+    @Test
+    void whenReceiveANullEntityThenReturnNull() {
+        var countryDTO = CountryMapper.INSTANCE.map(null);
+        assertThat(countryDTO).isNull();
+    }
 }
