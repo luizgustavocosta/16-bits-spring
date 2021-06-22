@@ -5,6 +5,9 @@ import org.force66.beantester.BeanTesterConfiguration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Country")
@@ -29,5 +32,6 @@ class CountryTest {
     void testProperties() {
         BeanTester beanTester = new BeanTester();
         beanTester.testBean(Country.class);
+        beanTester.testBean(Country.class, new Object[]{42, "", "", Continent.AFRICA});
     }
 }
