@@ -108,6 +108,11 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.force66</groupId>
+            <artifactId>BeanTester</artifactId>
+            <version>1.0.1-rc1</version>
+        </dependency>
     </dependencies>
     <properties>
         <java.version>11</java.version>

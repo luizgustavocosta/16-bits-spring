@@ -1,5 +1,7 @@
 package com.costa.luiz.lombok;
 
+import org.force66.beantester.BeanTester;
+import org.force66.beantester.BeanTesterConfiguration;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -21,5 +23,11 @@ class CountryTest {
                 .isNotNull()
                 .extracting("id", "code", "continent", "name")
                 .isNotNull();
+    }
+
+    @Test
+    void testProperties() {
+        BeanTester beanTester = new BeanTester();
+        beanTester.testBean(Country.class);
     }
 }
