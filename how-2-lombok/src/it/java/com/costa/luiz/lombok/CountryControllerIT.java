@@ -1,7 +1,7 @@
 package com.costa.luiz.lombok;
 
+import com.costa.luiz.lombok.annotations.IntegrationTest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.AutoConfigureWebTestClient;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,7 +18,7 @@ class CountryControllerIT {
     private WebTestClient webTestClient;
 
     @DisplayName("All countries")
-    @Test
+    @IntegrationTest
     @WithMockUser
     void whenRequestAllCountriesThenBringAllCountries() {
         webTestClient
@@ -34,5 +34,18 @@ class CountryControllerIT {
                 .jsonPath("$[2].id").isEqualTo(3)
                 .jsonPath("$[2].name").isEqualTo("Andorra")
                 .jsonPath("$[2].continent").isEqualTo(Continent.EUROPE.name());
+    }
+
+    @DisplayName("All countries -> Check the whole response")
+    @IntegrationTest
+    void whenRequestAllCountriesThenBringAllCountriesAndStatus2XX() {
+        var payload = "[{\"id\":1,\"name\":\"Monaco\",\"code\":\"MC\",\"continent\":\"EUROPE\"}," +
+                "{\"id\":2,\"name\":\"Vaticano\",\"code\":\"VA\",\"continent\":\"EUROPE\"}," +
+                "{\"id\":3,\"name\":\"Andorra\",\"code\":\"AD\",\"continent\":\"EUROPE\"}]";
+
+        webTestClient.get().uri("/countries")
+                .exchange()
+                .expectStatus().is2xxSuccessful()
+                .expectBody(String.class).isEqualTo(payload);
     }
 }

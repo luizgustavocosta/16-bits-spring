@@ -1,6 +1,6 @@
 package com.costa.luiz.lombok;
 
-import org.junit.jupiter.api.Test;
+import com.costa.luiz.lombok.annotations.UnitTest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -29,14 +29,15 @@ class CountryControllerTest {
     @MockBean
     CountryMapper mapper;
 
-    @Test
+    @UnitTest
     @WithMockUser
     void whenRequestAllThenBringAllCountries() throws Exception {
         var id = 42;
         var country = Country.builder().id(id).build();
         when(service.findAll()).thenReturn(Collections.singletonList(country));
 
-        CountryDTO countryDTO = new CountryDTO(id, null, null, null);
+        CountryDTO countryDTO = new CountryDTO();
+        countryDTO.setId(id);
         when(mapper.map(country)).thenReturn(countryDTO);
 
         this.mockMvc.perform(get("/countries"))

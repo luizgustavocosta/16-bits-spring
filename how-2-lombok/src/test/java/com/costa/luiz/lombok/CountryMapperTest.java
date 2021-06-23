@@ -1,14 +1,14 @@
 package com.costa.luiz.lombok;
 
+import com.costa.luiz.lombok.annotations.UnitTest;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
 @DisplayName("Country Mapper")
 class CountryMapperTest {
 
-    @Test
+    @UnitTest
     void whenReceiveACountryThenMapToCountryDTO() {
         //Give
         Country country = Country.builder()
@@ -29,7 +29,7 @@ class CountryMapperTest {
                 .isEqualTo(countryDTO);
     }
 
-    @Test
+    @UnitTest
     void whenReceiveANullEntityThenReturnNull() {
         var countryDTO = CountryMapper.INSTANCE.map(null);
         assertThat(countryDTO).isNull();

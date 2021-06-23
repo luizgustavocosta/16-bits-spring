@@ -58,10 +58,10 @@
             <artifactId>h2</artifactId>
             <scope>runtime</scope>
         </dependency>
-        <!--		<dependency>-->
-        <!--			<groupId>org.postgresql</groupId>-->
-        <!--			<artifactId>postgresql</artifactId>-->
-        <!--		</dependency>-->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -118,6 +118,7 @@
         <java.version>11</java.version>
         <jacoco.version>0.8.3</jacoco.version>
         <org.mapstruct.version>1.4.2.Final</org.mapstruct.version>
+        <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
         <sonar.projectKey>luizgustavocosta_16-bits-spring</sonar.projectKey>
         <sonar.organization>luizgustavocosta</sonar.organization>
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
@@ -146,7 +147,6 @@
             </properties>
         </profile>
     </profiles>
-
     <build>
         <plugins>
             <plugin>
@@ -189,8 +189,8 @@
                 <version>${jacoco.version}</version>
                 <configuration>
                     <skip>false</skip>
-                    <destFile>${basedir}/target/coverage-reports/jacoco-unit.exec</destFile>
-                    <dataFile>${basedir}/target/coverage-reports/jacoco-unit.exec</dataFile>
+                    <destFile>${basedir}/target/coverage-reports/jacoco.exec</destFile>
+                    <dataFile>${basedir}/target/coverage-reports/jacoco.exec</dataFile>
                     <output>file</output>
                     <append>true</append>
                     <excludes>
@@ -216,10 +216,12 @@
                         <id>pre-integration-test</id>
                         <phase>pre-integration-test</phase>
                         <goals>
-                            <goal>prepare-agent</goal>
+                            <goal>prepare-agent-integration</goal>
                         </goals>
                         <configuration>
-                            <destFile>${project.build.directory}/coverage-reports/jacoco-it.exec</destFile>
+                            <append>false</append>
+                            <destFile>${project.basedir}/jacoco/jacoco-it.exec</destFile>
+                            <output>file</output>
                             <propertyName>failsafeArgLine</propertyName>
                         </configuration>
                     </execution>
@@ -230,8 +232,8 @@
                             <goal>report</goal>
                         </goals>
                         <configuration>
-                            <dataFile>${project.build.directory}/coverage-reports/jacoco-it.exec</dataFile>
-                            <outputDirectory>${project.reporting.outputDirectory}/jacoco-it</outputDirectory>
+                            <dataFile>${project.basedir}/jacoco/jacoco-it.exec</dataFile>
+                            <outputDirectory>${project.build.outputDirectory}</outputDirectory>
                         </configuration>
                     </execution>
                 </executions>
@@ -239,24 +241,21 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-failsafe-plugin</artifactId>
+                <version>3.0.0-M5</version>
                 <executions>
                     <execution>
+                        <configuration>
+                            <testSourceDirectory>src/it/java</testSourceDirectory>
+                            <excludes>
+                                <exclude>**/*Test.java</exclude>
+                            </excludes>
+                        </configuration>
                         <goals>
                             <goal>integration-test</goal>
                             <goal>verify</goal>
                         </goals>
                     </execution>
                 </executions>
-                <configuration>
-                    <testSourceDirectory>src/it/java</testSourceDirectory>
-                    <classesDirectory>${project.build.outputDirectory}</classesDirectory>
-                    <includes>
-                        <include>**/*IT.java</include>
-                    </includes>
-                    <excludes>
-                        <exclude>**/*Test.java</exclude>
-                    </excludes>
-                </configuration>
             </plugin>
         </plugins>
     </build>

@@ -37,3 +37,6 @@ java -jar target/how-2-lombok-0.0.1-SNAPSHOT.jar
 ```
 
 <!--- ENDEXCLUDE --->
+
+References
+https://github.com/pkainulainen/maven-examples
