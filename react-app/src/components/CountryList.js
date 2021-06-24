@@ -7,6 +7,15 @@ const ContryList = () => {
     const { books, setBooks } = useContext(ContriesContext);
 
     const handleRemoveBook = (id) => {
+        // fetch('http://jsonplaceholder.typicode.com/users')
+        fetch('http://localhost:9090/api/v1/customers')
+            .then(res => res.json())
+            .then((data) => {
+                console.log(data)
+            })
+            .catch(console.log)
+
+
         setBooks(books.filter((book) => book.id !== id));
     };
 
