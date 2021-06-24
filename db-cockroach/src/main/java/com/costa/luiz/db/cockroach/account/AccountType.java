@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 public enum AccountType {
 

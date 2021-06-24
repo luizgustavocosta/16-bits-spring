@@ -1,4 +1,6 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
+
+import com.costa.luiz.db.cockroach.customer.Customer;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
@@ -12,11 +14,12 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
+    @OneToOne(orphanRemoval = true, fetch = FetchType.LAZY)
+    @JoinColumn(name = "id", referencedColumnName = "customerid")
+    private Customer customer;
+
     @Column(length = 25, nullable = false)
     private BigDecimal balance;
-
-    @Column(length = 128, nullable = false, unique = true)
-    private String name;
 
     @Column(length = 25, nullable = false)
     @Enumerated(EnumType.STRING)
@@ -31,10 +34,6 @@ public class Account {
 
     public BigDecimal getBalance() {
         return balance;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public AccountType getType() {

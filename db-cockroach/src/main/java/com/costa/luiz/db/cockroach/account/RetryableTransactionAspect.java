@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 import java.lang.reflect.UndeclaredThrowableException;
 import java.sql.SQLException;

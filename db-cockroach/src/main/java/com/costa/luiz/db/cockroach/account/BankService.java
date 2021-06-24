@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

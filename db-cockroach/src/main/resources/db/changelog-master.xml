@@ -13,29 +13,50 @@
     </changeSet>
 
     <changeSet id="2" author="luiz" context="default">
+        <insert tableName="customers">
+            <column name="id">1</column>
+            <column name="name">Michael</column>
+            <column name="lastname">Schumacher</column>
+            <column name="becamecustomer" valueDate="1995-11-10"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id">2</column>
+            <column name="name">Rubens</column>
+            <column name="lastname">Barrichelo</column>
+            <column name="becamecustomer" valueDate="1997-08-18"/>
+        </insert>
+        <insert tableName="customers">
+            <column name="id">3</column>
+            <column name="name">Lewis</column>
+            <column name="lastname">Hamilton</column>
+            <column name="becamecustomer" valueDate="2010-12-01"/>
+        </insert>
+    </changeSet>
+
+    <changeSet id="3" author="luiz" context="default">
         <insert tableName="accounts">
             <column name="id">1</column>
-            <column name="name">Alice</column>
             <column name="balance" valueNumeric="500.00"/>
             <column name="type">ASSET</column>
+            <column name="customerid">1</column>
         </insert>
         <insert tableName="accounts">
             <column name="id">2</column>
-            <column name="name">Bob</column>
             <column name="balance" valueNumeric="500.00"/>
             <column name="type">EXPENSE</column>
+            <column name="customerid">1</column>
         </insert>
         <insert tableName="accounts">
             <column name="id">3</column>
-            <column name="name">Bobby Tables</column>
-            <column name="balance" valueNumeric="500.00"/>
+            <column name="balance" valueNumeric="80.00"/>
             <column name="type">ASSET</column>
+            <column name="customerid">2</column>
         </insert>
         <insert tableName="accounts">
             <column name="id">4</column>
-            <column name="name">Doris</column>
-            <column name="balance" valueNumeric="500.00"/>
+            <column name="balance" valueNumeric="2500.00"/>
             <column name="type">EXPENSE</column>
+            <column name="customerid">3</column>
         </insert>
     </changeSet>
 </databaseChangeLog>

@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 import java.math.BigDecimal;
 
@@ -8,17 +8,8 @@ import org.springframework.hateoas.server.core.Relation;
 @Relation(value = "account", collectionRelation = "accounts")
 public class AccountModel extends RepresentationModel<AccountModel> {
 
-    private String name;
     private AccountType type;
     private BigDecimal balance;
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
 
     public AccountType getType() {
         return type;

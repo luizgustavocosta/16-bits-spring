@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,11 +12,6 @@ public class AccountResource {
 
     public AccountResource(BankService service) {
         this.service = service;
-    }
-
-    @GetMapping("{id}")
-    public Account findById() {
-        return null;
     }
 
     @GetMapping("findall")

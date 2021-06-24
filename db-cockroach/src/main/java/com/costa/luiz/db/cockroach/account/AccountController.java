@@ -1,4 +1,4 @@
-package com.costa.luiz.db.cockroach;
+package com.costa.luiz.db.cockroach.account;
 
 import java.math.BigDecimal;
 
@@ -93,7 +93,6 @@ public class AccountController {
     private RepresentationModelAssembler<Account, AccountModel> accountModelAssembler() {
         return (entity) -> {
             AccountModel model = new AccountModel();
-            model.setName(entity.getName());
             model.setType(entity.getType());
             model.setBalance(entity.getBalance());
             model.add(linkTo(methodOn(AccountController.class)
