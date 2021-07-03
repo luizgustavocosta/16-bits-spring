@@ -38,5 +38,8 @@ java -jar target/how-2-lombok-0.0.1-SNAPSHOT.jar
 
 <!--- ENDEXCLUDE --->
 
+### Docker
+docker build -t 16-bits/how-2-lombok:0.0.1 .
+
 References
 https://github.com/pkainulainen/maven-examples
