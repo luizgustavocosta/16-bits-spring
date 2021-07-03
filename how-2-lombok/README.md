@@ -39,7 +39,12 @@ java -jar target/how-2-lombok-0.0.1-SNAPSHOT.jar
 <!--- ENDEXCLUDE --->
 
 ### Docker
+mvn clean package
+
 docker build -t 16-bits/how-2-lombok:0.0.1 .
+
+ 
+docker run --name how-2-lombok --platform linux/amd64 -p 8092:8092 16-bits/how-2-lombok:0.0.1
 
 References
 https://github.com/pkainulainen/maven-examples
