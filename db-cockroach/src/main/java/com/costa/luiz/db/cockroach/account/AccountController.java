@@ -49,7 +49,7 @@ public class AccountController {
         return new ResponseEntity<>(index, HttpStatus.OK);
     }
 
-    @GetMapping("/account")
+    @GetMapping("/accounts")
     @Transactional(propagation = REQUIRES_NEW)
     public HttpEntity<PagedModel<AccountModel>> listAccounts(
             @PageableDefault(size = 5, direction = Sort.Direction.ASC) Pageable page) {
@@ -57,7 +57,7 @@ public class AccountController {
                 .ok(pagedResourcesAssembler.toModel(accountRepository.findAll(page), accountModelAssembler()));
     }
 
-    @GetMapping(value = "/account/{id}")
+    @GetMapping(value = "/accounts/{id}")
     @Transactional(propagation = REQUIRES_NEW)
     public HttpEntity<AccountModel> getAccount(@PathVariable("id") Long accountId) {
         return new ResponseEntity<>(accountModelAssembler().toModel(accountRepository.getOne(accountId)),
