@@ -1,0 +1,16 @@
+spring:
+  liquibase:
+    change-log: classpath:db/changelog-master.xml
+    default-schema:
+    drop-first: false
+    contexts: test
+    enabled: true
+  datasource:
+    url: jdbc:h2:mem:lombok
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: validate
+    show-sql: true
