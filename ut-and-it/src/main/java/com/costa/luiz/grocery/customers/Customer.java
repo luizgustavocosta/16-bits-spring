@@ -1,5 +1,6 @@
-package com.costa.luiz.domain.grocery.model;
+package com.costa.luiz.grocery.customers;
 
+import com.costa.luiz.grocery.orders.Order;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;

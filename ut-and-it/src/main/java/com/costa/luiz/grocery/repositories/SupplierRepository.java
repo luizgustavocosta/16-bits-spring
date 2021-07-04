@@ -1,6 +1,6 @@
-package com.costa.luiz.domain.grocery.repository;
+package com.costa.luiz.grocery.repositories;
 
-import com.costa.luiz.domain.grocery.model.Supplier;
+import com.costa.luiz.grocery.suppliers.Supplier;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

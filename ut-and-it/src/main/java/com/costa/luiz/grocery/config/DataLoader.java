@@ -1,7 +1,13 @@
-package com.costa.luiz.domain.grocery.config;
+package com.costa.luiz.grocery.config;
 
-import com.costa.luiz.domain.grocery.model.*;
-import com.costa.luiz.domain.grocery.repository.*;
+import com.costa.luiz.grocery.customers.Customer;
+import com.costa.luiz.grocery.customers.CustomerContact;
+import com.costa.luiz.grocery.orders.Item;
+import com.costa.luiz.grocery.orders.Order;
+import com.costa.luiz.grocery.orders.Status;
+import com.costa.luiz.grocery.products.Product;
+import com.costa.luiz.grocery.repositories.*;
+import com.costa.luiz.grocery.suppliers.Supplier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -10,7 +16,6 @@ import org.springframework.context.annotation.Configuration;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
-import java.time.ZonedDateTime;
 import java.util.Collections;
 
 @Configuration

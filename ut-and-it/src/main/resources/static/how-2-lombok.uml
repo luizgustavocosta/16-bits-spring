@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.costa.luiz.lombok.CountryRepository</OriginalElement>
+  <nodes>
+    <node x="137.18695652173915" y="474.0">com.costa.luiz.lombok.CountryController</node>
+    <node x="68.80000000000001" y="230.0">com.costa.luiz.lombok.CountryDTO</node>
+    <node x="356.4905797101449" y="358.0">com.costa.luiz.lombok.CountryService</node>
+    <node x="0.0" y="370.5">com.costa.luiz.lombok.CountryMapper</node>
+    <node x="229.3" y="104.0">com.costa.luiz.lombok.Country</node>
+    <node x="313.80000000000007" y="0.0">com.costa.luiz.lombok.Continent</node>
+    <node x="385.8" y="253.5">com.costa.luiz.lombok.CountryRepository</node>
+    <node x="1.1869565217391482" y="474.0">com.costa.luiz.lombok.AppMain</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.costa.luiz.lombok.CountryController" target="com.costa.luiz.lombok.CountryMapper" relationship="TO_ONE">
+      <point x="-69.4" y="-27.0" />
+      <point x="241.28695652173914" y="443.0" />
+      <point x="123.75" y="443.0" />
+      <point x="41.25" y="14.5" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryController" target="com.costa.luiz.lombok.CountryDTO" relationship="DEPENDENCY">
+      <point x="0.0" y="-27.0" />
+      <point x="310.68695652173915" y="433.0" />
+      <point x="216.8" y="433.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryMapper" target="com.costa.luiz.lombok.Country" relationship="DEPENDENCY">
+      <point x="-41.25" y="-14.5" />
+      <point x="41.25" y="205.0" />
+      <point x="375.3" y="205.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryController" target="com.costa.luiz.lombok.CountryMapper" relationship="DEPENDENCY">
+      <point x="-138.8" y="-27.0" />
+      <point x="171.88695652173914" y="453.0" />
+      <point x="59.18695652173915" y="453.0" />
+      <point x="59.18695652173915" y="443.0" />
+      <point x="41.25" y="443.0" />
+      <point x="-41.25" y="14.5" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.Country" target="com.costa.luiz.lombok.Continent" relationship="TO_ONE">
+      <point x="2.8421709430404007E-14" y="-38.0" />
+      <point x="0.0" y="27.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.AppMain" target="com.costa.luiz.lombok.CountryMapper" relationship="DEPENDENCY">
+      <point x="0.0" y="-27.0" />
+      <point x="59.18695652173915" y="443.0" />
+      <point x="41.25" y="443.0" />
+      <point x="-41.25" y="14.5" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryRepository" target="com.costa.luiz.lombok.Country" relationship="DEPENDENCY">
+      <point x="0.0" y="-14.5" />
+      <point x="479.8" y="205.0" />
+      <point x="375.3" y="205.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryService" target="com.costa.luiz.lombok.Country" relationship="DEPENDENCY">
+      <point x="-85.33333333333331" y="-27.0" />
+      <point x="399.1572463768116" y="332.0" />
+      <point x="375.3" y="332.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryService" target="com.costa.luiz.lombok.CountryRepository" relationship="TO_ONE">
+      <point x="85.33333333333331" y="-27.0" />
+      <point x="569.8239130434782" y="332.0" />
+      <point x="526.8" y="332.0" />
+      <point x="47.0" y="14.5" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryController" target="com.costa.luiz.lombok.CountryService" relationship="TO_ONE">
+      <point x="138.8" y="-27.0" />
+      <point x="449.48695652173916" y="453.0" />
+      <point x="548.4905797101449" y="453.0" />
+      <point x="64.0" y="27.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryService" target="com.costa.luiz.lombok.CountryRepository" relationship="DEPENDENCY">
+      <point x="1.4210854715202004E-14" y="-27.0" />
+      <point x="484.4905797101449" y="332.0" />
+      <point x="432.8" y="332.0" />
+      <point x="-47.0" y="14.5" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryMapper" target="com.costa.luiz.lombok.CountryDTO" relationship="DEPENDENCY">
+      <point x="41.25" y="-14.5" />
+      <point x="123.75" y="332.0" />
+      <point x="216.8" y="332.0" />
+      <point x="0.0" y="38.0" />
+    </edge>
+    <edge source="com.costa.luiz.lombok.CountryController" target="com.costa.luiz.lombok.CountryService" relationship="DEPENDENCY">
+      <point x="69.39999999999998" y="-27.0" />
+      <point x="380.0869565217391" y="453.0" />
+      <point x="420.4905797101449" y="453.0" />
+      <point x="-64.0" y="27.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="176.0" y="199.5" />
+  <SelectedNodes>
+    <node>com.costa.luiz.lombok.CountryRepository</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

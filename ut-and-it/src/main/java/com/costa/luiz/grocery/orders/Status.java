@@ -1,4 +1,4 @@
-package com.costa.luiz.domain.grocery.model;
+package com.costa.luiz.grocery.orders;
 
 public enum Status {
     OPEN,

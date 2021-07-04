@@ -1,4 +1,4 @@
-package com.costa.luiz.domain.grocery.model;
+package com.costa.luiz.grocery.customers;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
