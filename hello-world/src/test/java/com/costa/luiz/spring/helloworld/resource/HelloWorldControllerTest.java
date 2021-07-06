@@ -1,27 +1,44 @@
 package com.costa.luiz.spring.helloworld.resource;
 
+import com.costa.luiz.spring.helloworld.AppMainConfig;
+import com.costa.luiz.spring.resource.HelloWorldController;
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.web.client.TestRestTemplate;
-import org.springframework.boot.web.server.LocalServerPort;
+import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.security.test.context.support.WithMockUser;
+import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.web.servlet.MockMvc;
 
-@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
+import static org.hamcrest.Matchers.containsString;
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+
+@WebMvcTest(value = HelloWorldController.class)
+@ContextConfiguration(classes = AppMainConfig.class)
 class HelloWorldControllerTest implements WithAssertions {
 
-    @LocalServerPort
-    private int port;
-
     @Autowired
-    private TestRestTemplate restTemplate;
+    private MockMvc mockMvc;
 
     @Test
-    void greetingShouldReturnDefaultMessage() throws Exception {
-        final String response = restTemplate
-                .getForObject("http://localhost:" + port + "/api/spring/helloworld/luiz",
-                        String.class);
-        assertThat(response).contains("Spring saying 'Hello to");
+    @WithMockUser
+    void shouldReturnDefaultMessage() throws Exception {
+        this.mockMvc.perform(get("/api/spring/helloworld")).andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Hello user")));
+    }
+
+    @Test
+    @WithMockUser
+    void shouldReturnACustomizedMessage() throws Exception {
+        this.mockMvc.perform(
+                get("/api/spring/helloworld/16-bits"))
+                .andDo(print())
+                .andExpect(status().isOk())
+                .andExpect(content().string(containsString("Spring saying 'Hello to")));
     }
 
 }

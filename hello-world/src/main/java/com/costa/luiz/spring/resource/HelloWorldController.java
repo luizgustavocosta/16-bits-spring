@@ -22,6 +22,11 @@ public class HelloWorldController {
     @Value("${server.port}")
     String port;
 
+    @GetMapping
+    public String genericHello() {
+        return "Hello user";
+    }
+
 
     @GetMapping("{name}")
     public String sayHello(@PathVariable("name") String name) {
