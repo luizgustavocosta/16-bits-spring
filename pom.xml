@@ -26,6 +26,7 @@
         <module>how-2-lombok</module>
         <module>block-async-reactive</module>
         <module>ut-and-it</module>
+        <module>repository</module>
     </modules>
 
     <dependencyManagement>
