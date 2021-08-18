@@ -18,8 +18,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-@WebMvcTest(SearchMoviesUsingCrud.class)
-class SearchMoviesUsingCrudTest implements WithAssertions {
+@WebMvcTest(MovieCrudController.class)
+class MovieCrudControllerTest implements WithAssertions {
 
     @Autowired
     MockMvc mockMvc;

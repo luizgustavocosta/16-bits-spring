@@ -7,21 +7,19 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Collections;
-
 @RestController
 @RequestMapping("/api/v1/crud/movies")
-public class SearchMoviesUsingCrud {
+public class MovieCrudController {
 
     @Autowired
     private final MovieService service;
 
-    public SearchMoviesUsingCrud(MovieService service) {
+    public MovieCrudController(MovieService service) {
         this.service = service;
     }
 
     @GetMapping
-    Iterable<Movie> allMovies() {
+    public Iterable<Movie> allMovies() {
         return service.findAllByCrud();
     }
 }
