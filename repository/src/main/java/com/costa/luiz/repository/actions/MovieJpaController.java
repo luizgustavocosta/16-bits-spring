@@ -2,10 +2,6 @@ package com.costa.luiz.repository.actions;
 
 import com.costa.luiz.repository.model.Movie;
 import com.costa.luiz.repository.model.MovieService;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -40,22 +36,14 @@ public class MovieJpaController {
     @PutMapping
     @ResponseStatus(HttpStatus.OK)
     public void update(@RequestBody MovieRequest request) {
-        service.saveUsingJpa(request.id, request.name, request.year);
+        service.saveUsingJpa(request.getId(), request.getName(), request.getYear());
     }
 
     @DeleteMapping(path = "/{movieId}")
     @ResponseStatus(HttpStatus.OK)
     public void delete(@PathVariable String movieId) {
-        service.deleteUsingJpa(movieId);
+        service.deleteBy(movieId);
     }
 
-    @Getter
-    @Setter
-    @AllArgsConstructor
-    @NoArgsConstructor
-    private static class MovieRequest {
-        private String id;
-        private String name;
-        private String year;
-    }
+
 }

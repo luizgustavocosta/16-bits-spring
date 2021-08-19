@@ -1,9 +1,6 @@
 package com.costa.luiz.repository.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -15,6 +12,7 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Getter
 @Setter
+@Builder
 public class Movie {
 
     @Id

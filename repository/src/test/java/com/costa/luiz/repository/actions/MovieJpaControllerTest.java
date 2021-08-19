@@ -31,11 +31,14 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class MovieJpaControllerTest implements WithAssertions {
 
     private static final String URL_TEMPLATE = "/api/v1/jpa/movies";
-    private static final String DEFAULT_MOVIE = "{\"id\":\"1\",\"name\":\"Matrix\",\"year\":\"1999\"}";
+    private static final String DEFAULT_MOVIE_AS_JSON = "{\"id\":\"1\",\"name\":\"Matrix\",\"year\":\"1999\"}";
+    private static final Movie DEFAULT_MOVIE = Movie.builder().id("1").name("Matrix").year("1999").build();
     @Autowired
     MockMvc mockMvc;
     @MockBean
     MovieService service;
+    @MockBean
+    MovieMapper mapper;
     @Autowired
     private WebApplicationContext webApplicationContext;
 
@@ -50,16 +53,16 @@ class MovieJpaControllerTest implements WithAssertions {
     @DisplayName("Retrieve")
     void allMovies() throws Exception {
         when(service.findAllByJpa(0, 5, "name"))
-                .thenReturn(List.of(new Movie("1", "Matrix", "1999")));
+                .thenReturn(List.of(DEFAULT_MOVIE));
         mockMvc.perform(get(URL_TEMPLATE))
-                .andExpect(content().json("[" + DEFAULT_MOVIE + "]"))
+                .andExpect(content().json("[" + DEFAULT_MOVIE_AS_JSON + "]"))
                 .andExpect(status().isOk());
     }
 
     @Test
     @DisplayName("Create")
     void createANewMovie() throws Exception {
-        doNothing().when(service).saveUsingJpa(any(String.class), any(String.class));
+        when(service.saveUsingJpa(any(String.class), any(String.class))).thenReturn(DEFAULT_MOVIE);
         mockMvc.perform(post(URL_TEMPLATE)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
@@ -75,7 +78,7 @@ class MovieJpaControllerTest implements WithAssertions {
         mockMvc.perform(put(URL_TEMPLATE)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON)
-                .content(DEFAULT_MOVIE))
+                .content(DEFAULT_MOVIE_AS_JSON))
                 .andDo(print())
                 .andExpect(status().isOk());
     }
@@ -84,7 +87,7 @@ class MovieJpaControllerTest implements WithAssertions {
     @DisplayName("Delete")
     void deleteMovie() throws Exception {
         var movieId = "42";
-        doNothing().when(service).deleteUsingJpa(movieId);
+        doNothing().when(service).deleteBy(movieId);
         mockMvc.perform(delete(URL_TEMPLATE + "/{movieId}", movieId)
                 .accept(MediaType.APPLICATION_JSON)
                 .contentType(MediaType.APPLICATION_JSON))

@@ -8,8 +8,8 @@ Natural order is by name
 
 GET curl "http://localhost:8080/api/v1/jpa/movies?page=1&size=20&sortBy=year"
 
-POST curl -d '{"name":"Luiz", "year":"3000"}' -H "Content-Type: application/json" -X
-POST http://localhost:8080/api/v1/jpa/movies
+POST => curl -d '{"name":"Luiz", "year":"3000"}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/v1/jpa/movies
+POST => curl -d '{"name":"Luiz", "year":"3000"}' -H "Content-Type: application/json" -X POST http://localhost:8080/api/v1/crud/movies
 
 PUT curl -d '{"id":"66f5a5df-133e-4880-a39d-3340296c4715","name":"Luiz Costa", "year":"3000"}' -H "Content-Type:
 application/json" -X PUT http://localhost:8080/api/v1/jpa/movies

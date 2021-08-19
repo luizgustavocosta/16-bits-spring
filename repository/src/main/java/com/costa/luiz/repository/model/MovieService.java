@@ -35,21 +35,44 @@ public class MovieService {
                 .ifPresentOrElse(movie -> {
                     movie.setName(name);
                     movie.setYear(year);
-                    jpaRepository.save(movie);
+                    jpaRepository.saveAndFlush(movie);
                 }, () -> {
                     throw new IllegalArgumentException("Movie " + id + " not found");
                 });
     }
 
-    public void saveUsingJpa(String name, String year) {
-        jpaRepository.saveAndFlush(new Movie(UUID.randomUUID().toString(), name, year));
+    public Movie saveUsingJpa(String name, String year) {
+        return jpaRepository.saveAndFlush(Movie.builder()
+                .id(UUID.randomUUID().toString())
+                .name(name)
+                .year(year)
+                .build());
     }
 
-    public void deleteUsingJpa(String id) {
+    public void saveUsingCrud(String name, String year) {
+        crudRepository.save(Movie.builder().id(UUID.randomUUID().toString()).name(name).year(year).build());
+    }
+
+    public void saveUsingCrud(String id, String name, String year) {
+        crudRepository.findById(id)
+                .ifPresentOrElse(movie -> {
+                    movie.setName(name);
+                    movie.setYear(year);
+                    crudRepository.save(movie);
+                }, () -> {
+                    throw new IllegalArgumentException("Movie not found");
+                });
+    }
+
+    public void deleteBy(String id) {
         jpaRepository.findById(id)
                 .ifPresentOrElse(jpaRepository::delete,
                         () -> {
                             throw new IllegalArgumentException("Movie " + id + " not found");
                         });
+    }
+
+    public Movie findById(String id) {
+        return crudRepository.findById(id).orElseThrow(IllegalArgumentException::new);
     }
 }
