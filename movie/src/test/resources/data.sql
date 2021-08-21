@@ -1,0 +1,11 @@
+insert into movies values ('3b18c0b4-ec9e-43fa-8b2e-1602aa3053f9','A','1998');
+insert into movies values ('33a85527-4864-4350-a3e4-5a48b44460d9','A Aa E Ee','1972');
+insert into movies values ('6a00129f-4ffd-4747-8a98-61113f09c489','A Beautiful Mind','2001');
+insert into movies values ('31eac2dd-d8b5-49ce-916b-73c4be3efa70','A Beautiful New World','1999');
+insert into movies values ('63ecd390-eb7a-4494-b579-f9525d1facbf','A Better Life','2011');
+insert into movies values ('63ecd390-eb7a-4494-b579-f9525d1facb2','A Better Life','1911');
+insert into movies values ('50b32469-b225-4e15-b76f-20794a8a67c4','A Better Place','1997');
+insert into movies values ('9dfc5def-da74-4b4b-8571-75295d443227','A Better Tomorrow','1986');
+insert into movies values ('cfd07225-9ae6-49aa-bcf6-cedd2fea68cc','A Better Tomorrow II','1987');
+insert into movies values ('3860b4ed-80c0-4d50-9174-5dae5cf66f5c','A Big Hand for the Little Lady','1966');
+insert into movies values ('6641272e-a26e-4e8c-881a-e6ad5ed0df2b','A Bigger Splash','2015');

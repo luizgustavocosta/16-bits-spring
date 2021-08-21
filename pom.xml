@@ -26,7 +26,8 @@
         <module>how-2-lombok</module>
         <module>block-async-reactive</module>
         <module>ut-and-it</module>
-        <module>repository</module>
+        <module>movie</module>
+        <module>crud_vs_jpa</module>
     </modules>
 
     <dependencyManagement>
