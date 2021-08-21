@@ -38,7 +38,8 @@ class PostCrudRepositoryTest implements WithAssertions {
         var user = "LuizCostaTech";
         List<Post> allPostsByUser = this.repository.findAllByUser(user);
         assertThat(allPostsByUser).extracting("user").contains(user);
-  }
+    }
+
     @Test
     @DisplayName("Retrieve all by user contains word")
     @Sql("/data.sql")
