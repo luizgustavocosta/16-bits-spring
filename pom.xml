@@ -24,7 +24,7 @@
         <module>multi-tenancy</module>
         <module>db-cockroach</module>
         <module>how-2-lombok</module>
-        <module>block-async-reactive</module>
+        <module>block-async-stream</module>
         <module>ut-and-it</module>
         <module>movie</module>
         <module>crud_vs_jpa</module>
