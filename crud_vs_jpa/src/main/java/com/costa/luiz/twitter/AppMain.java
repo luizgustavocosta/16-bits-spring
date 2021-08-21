@@ -1,19 +1,16 @@
 package com.costa.luiz.twitter;
 
-import com.costa.luiz.twitter.model.Post;
 import com.costa.luiz.twitter.ui.Menu;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 
 @SpringBootApplication(exclude = {
         org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration.class,
         org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class}
 )
-@Slf4j
 public class AppMain {
 
     public static void main(String[] args) {
@@ -22,6 +19,12 @@ public class AppMain {
     }
 
     private static void showMenu() {
+        System.out.println("**** Menu ****");
+        System.out.println("Options accepted");
+        System.out.println("exit - Close the menu");
+        System.out.println("0 - Count all posts");
+        System.out.println("1 - Create a random post");
+        System.out.println("2 - Read all posts");
         try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 String command = scanner.nextLine();
@@ -40,16 +43,21 @@ public class AppMain {
     }
 
     private static void countPosts() {
-        log.info("How many posts stored ? {}", Menu.countPosts());
+        System.out.println("How many posts stored ?"+ Menu.countPosts());
     }
 
     private static void readAllPosts() {
-        log.info("Read all posts");
-        List<Post> allCrud = Menu.findAllCrud();
-        System.out.println(allCrud);
+        System.out.println("Looking for all post");
+        System.out.println(("....."));
+        System.out.println(Menu.findAllCrud().stream()
+                .map(post ->
+                        String.join(",",
+                                post.getUser(), post.getContent(), "\n"))
+                .collect(Collectors.toUnmodifiableList()));
+        System.out.println(("....."));
     }
 
     private static void createRandomPost() {
-        log.info("Creating new posts..coming soon");
+        Menu.createARandomPost();
     }
 }

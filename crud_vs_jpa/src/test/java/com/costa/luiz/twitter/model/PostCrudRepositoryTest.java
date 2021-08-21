@@ -16,6 +16,7 @@ import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
 
+@DisplayName("Crud Repository")
 @ExtendWith(SpringExtension.class)
 @DataJpaTest
 class PostCrudRepositoryTest implements WithAssertions {
@@ -34,9 +35,9 @@ class PostCrudRepositoryTest implements WithAssertions {
     @DisplayName("Retrieve all by user")
     @Sql("/data.sql")
     void findAllByUser() {
-        var user = "luizcosta";
+        var user = "LuizCostaTech";
         List<Post> allPostsByUser = this.repository.findAllByUser(user);
-        assertThat(allPostsByUser).extracting("user").contains("luizcosta");
+        assertThat(allPostsByUser).extracting("user").contains(user);
   }
     @Test
     @DisplayName("Retrieve all by user contains word")
@@ -51,7 +52,7 @@ class PostCrudRepositoryTest implements WithAssertions {
     @DisplayName("Retrieve all posts by user and post word")
     @Sql("/data.sql")
     void findAllByUserAndPost() {
-        var user = "luizcosta";
+        var user = "LuizCostaTech";
         var post = "#studying";
         List<Post> allPostsByUser = this.repository.findAllByUserAndPost(user, post);
         assertThat(allPostsByUser).hasSize(2);
