@@ -14,4 +14,4 @@ spring:
   sql:
     init:
       data-locations: classpath:data.sql
-      mode: always
+      mode: always #Or implements CommandLineRunner

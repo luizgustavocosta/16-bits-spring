@@ -1,7 +1,8 @@
-drop table movies;
-create table movies
+drop table posts;
+create table posts
 (
-    id   varchar(36) not null primary key,
-    name varchar(100),
-    year varchar(4)
+    id       uuid default random_uuid() not null primary key,
+    user     varchar(100),
+    content  varchar(256),
+    created_at TIMESTAMP WITH TIME ZONE
 );

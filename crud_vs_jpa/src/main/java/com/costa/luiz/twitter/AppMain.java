@@ -14,7 +14,6 @@ import java.util.Scanner;
         org.springframework.boot.actuate.autoconfigure.security.servlet.ManagementWebSecurityAutoConfiguration.class}
 )
 @Slf4j
-//@EnableJpaRepositories
 public class AppMain {
 
     public static void main(String[] args) {
@@ -24,12 +23,10 @@ public class AppMain {
 
     private static void showMenu() {
         try (Scanner scanner = new Scanner(System.in)) {
-            boolean showMenu = true;
-            while (showMenu) {
+            while (true) {
                 String command = scanner.nextLine();
                 if ("exit".equalsIgnoreCase(command)) {
                     //close all
-                    showMenu = false;
                     break;
                 }
                 switch (command) {

@@ -15,8 +15,8 @@ import java.util.UUID;
 @Setter
 @Builder
 @ToString
-@NamedQuery(name = "Posts.findByUserAndYear",
-        query = "select post from Post post where post.user = ?1 and post.createdAt = ?2")
+@NamedQuery(name = "Post.findAllByUserAndPost",
+        query = "select post from Post post where post.user = ?1 and post.content like CONCAT('%',?2,'%')")
 public class Post {
 
     @Id

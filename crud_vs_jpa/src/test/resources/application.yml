@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:h2:mem:movies-test
+    url: jdbc:h2:mem:twitter-test
     username: sa
     password:
   jpa:
