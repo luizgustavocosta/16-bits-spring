@@ -28,6 +28,7 @@
         <module>ut-and-it</module>
         <module>movie</module>
         <module>crud_vs_jpa</module>
+        <module>profile</module>
     </modules>
 
     <dependencyManagement>

@@ -1,0 +1,4 @@
+server:
+  servlet:
+    context-path: /profile
+  port: 8282
