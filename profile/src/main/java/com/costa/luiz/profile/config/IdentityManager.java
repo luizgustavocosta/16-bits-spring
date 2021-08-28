@@ -10,39 +10,47 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 
 @Configuration
-public class InMemoryUser {
+public class IdentityManager {
 
     PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     @Bean
     @Profile("dev")
     UserDetailsService devUsers() {
+        var dev = "dev";
         var user = User
-            .withUsername("guga")
-            .password(passwordEncoder.encode("guga"))
-            .roles("USER")
+            .withUsername(dev)
+            .password(passwordEncoder.encode(dev))
+            .roles(Roles.USER.name())
             .build();
 
-        var admin = User
-            .withUsername("admin")
-            .password(passwordEncoder.encode("admin"))
-            .roles("USER", "MANAGER").build();
-        return new InMemoryUserDetailsManager(user, admin);
+        var thanos = "thanos";
+        var manager = User
+            .withUsername(thanos)
+            .password(passwordEncoder.encode(thanos))
+            .roles(Roles.USER.name(), Roles.MANAGER.name())
+            .build();
+
+        return new InMemoryUserDetailsManager(user, manager);
     }
 
     @Bean
-    @Profile({"prod", "default"})
+    @Profile({"prod", "cloud", "on-prem", "default"})
     UserDetailsService defaultUsers() {
+        var userValue = "user";
         var user = User
-            .withUsername("user")
-            .password(passwordEncoder.encode("user"))
-            .roles("USER")
+            .withUsername(userValue)
+            .password(passwordEncoder.encode(userValue))
+            .roles(Roles.USER.name())
+//            .authorities("USER")
             .build();
 
+        var adminValue = "admin";
         var admin = User
-            .withUsername("admin")
-            .password(passwordEncoder.encode("admin"))
-            .roles("USER", "MANAGER").build();
+            .withUsername(adminValue)
+            .password(passwordEncoder.encode(adminValue))
+//            .authorities("USER", "MANAGER")
+            .roles(Roles.USER.name(), Roles.MANAGER.name()).build();
         return new InMemoryUserDetailsManager(user, admin);
     }
 }

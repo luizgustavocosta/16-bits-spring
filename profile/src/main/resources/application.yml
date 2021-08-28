@@ -1,4 +1,35 @@
 server:
-  servlet:
-    context-path: /profile
   port: 8282
+---
+spring:
+  profiles:
+    active: dev, default
+  datasource:
+    url: jdbc:h2:mem:dev
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+---
+spring:
+  profiles:
+    active: prod,cloud,on-prem
+  datasource:
+    url: jdbc:h2:mem:prod
+    username: sa
+    password:
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: create-drop
+  h2:
+    console:
+      enabled: true
+#spring:
+#  profiles:
+#    active: @spring.profiles.active@
