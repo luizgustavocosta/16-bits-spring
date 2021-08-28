@@ -18,15 +18,15 @@
 
     <profiles>
         <profile>
-            <id>dev</id>
+            <id>marvel</id>
             <activation>
                 <activeByDefault>true</activeByDefault>
             </activation>
         </profile>
         <profile>
-            <id>prod</id>
+            <id>dev</id>
             <properties>
-                <spring.profiles.active>prod,cloud,on-prem</spring.profiles.active>
+                <spring.profiles.active>dev,dc</spring.profiles.active>
             </properties>
         </profile>
     </profiles>

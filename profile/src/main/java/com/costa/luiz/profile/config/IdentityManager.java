@@ -15,42 +15,45 @@ public class IdentityManager {
     PasswordEncoder passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
 
     @Bean
-    @Profile("dev")
+    @Profile({"dc", "dev"})
     UserDetailsService devUsers() {
         var dev = "dev";
         var user = User
             .withUsername(dev)
             .password(passwordEncoder.encode(dev))
-            .roles(Roles.USER.name())
+            .roles(Roles.READER.name())
             .build();
 
-        var thanos = "thanos";
-        var manager = User
-            .withUsername(thanos)
-            .password(passwordEncoder.encode(thanos))
-            .roles(Roles.USER.name(), Roles.MANAGER.name())
+        var thanosValue = "thanos";
+        var thanos = User
+            .withUsername(thanosValue)
+            .password(passwordEncoder.encode(thanosValue))
+            .roles(Roles.READER.name(), Roles.WRITER.name())
             .build();
 
-        return new InMemoryUserDetailsManager(user, manager);
+        return new InMemoryUserDetailsManager(user, thanos);
     }
 
     @Bean
-    @Profile({"prod", "cloud", "on-prem", "default"})
+    @Profile({"marvel", "default"})
     UserDetailsService defaultUsers() {
         var userValue = "user";
         var user = User
             .withUsername(userValue)
             .password(passwordEncoder.encode(userValue))
-            .roles(Roles.USER.name())
-//            .authorities("USER")
+            .roles(Roles.READER.name())
             .build();
 
         var adminValue = "admin";
         var admin = User
-            .withUsername(adminValue)
-            .password(passwordEncoder.encode(adminValue))
-//            .authorities("USER", "MANAGER")
-            .roles(Roles.USER.name(), Roles.MANAGER.name()).build();
-        return new InMemoryUserDetailsManager(user, admin);
+            .withUsername(adminValue).password(passwordEncoder.encode(adminValue))
+            .roles(Roles.READER.name(), Roles.WRITER.name()).build();
+
+        var stanlLeeValue = "stanLee";
+        var stanLee = User
+            .withUsername(stanlLeeValue).password(passwordEncoder.encode(stanlLeeValue))
+            .roles(Roles.WRITER.name()).build();
+
+        return new InMemoryUserDetailsManager(user, admin, stanLee);
     }
 }

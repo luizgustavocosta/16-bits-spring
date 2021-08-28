@@ -1,11 +1,13 @@
 server:
   port: 8282
+  servlet:
+    context-path: "/comics"
 ---
 spring:
   profiles:
-    active: dev, default
+    active: dev, dc #detective-comics
   datasource:
-    url: jdbc:h2:mem:dev
+    url: jdbc:h2:mem:dc
     username: sa
     password:
   jpa:
@@ -18,9 +20,9 @@ spring:
 ---
 spring:
   profiles:
-    active: prod,cloud,on-prem
+    active: marvel, default
   datasource:
-    url: jdbc:h2:mem:prod
+    url: jdbc:h2:mem:marvel
     username: sa
     password:
   jpa:

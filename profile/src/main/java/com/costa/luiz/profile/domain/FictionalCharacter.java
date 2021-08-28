@@ -3,22 +3,22 @@ package com.costa.luiz.profile.domain;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "movies")
-public class Squad {
+@Table(name = "fictionalCharacters")
+public class FictionalCharacter {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
 
-    public Squad() {
+    public FictionalCharacter() {
     }
 
-    public Squad(String name) {
+    public FictionalCharacter(String name) {
         this.name = name;
     }
 
-    public Squad(Integer id, String name) {
+    public FictionalCharacter(Integer id, String name) {
         this.id = id;
         this.name = name;
     }

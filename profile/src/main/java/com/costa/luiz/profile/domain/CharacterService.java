@@ -5,15 +5,15 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class SquadService {
+public class CharacterService {
 
-    private final SquadRepository repository;
+    private final FictionalCharacterRepository repository;
 
-    public SquadService(SquadRepository repository) {
+    public CharacterService(FictionalCharacterRepository repository) {
         this.repository = repository;
     }
 
-    public List<Squad> findAll() {
+    public List<FictionalCharacter> findAll() {
         return repository.findAll();
     }
 }
