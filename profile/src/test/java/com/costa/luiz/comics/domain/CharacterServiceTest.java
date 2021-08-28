@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.domain;
+package com.costa.luiz.comics.domain;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;

@@ -1,7 +1,7 @@
-package com.costa.luiz.profile.config;
+package com.costa.luiz.comics.config;
 
-import com.costa.luiz.profile.domain.FictionalCharacter;
-import com.costa.luiz.profile.domain.FictionalCharacterRepository;
+import com.costa.luiz.comics.domain.FictionalCharacter;
+import com.costa.luiz.comics.domain.FictionalCharacterRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Profile;

@@ -1,6 +1,6 @@
-package com.costa.luiz.profile.controller;
+package com.costa.luiz.comics.controller;
 
-import com.costa.luiz.profile.domain.CharacterService;
+import com.costa.luiz.comics.domain.CharacterService;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

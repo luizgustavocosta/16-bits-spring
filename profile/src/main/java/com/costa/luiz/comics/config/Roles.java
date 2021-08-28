@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.config;
+package com.costa.luiz.comics.config;
 
 public enum Roles {
 

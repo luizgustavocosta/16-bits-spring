@@ -1,7 +1,7 @@
-package com.costa.luiz.profile.controller;
+package com.costa.luiz.comics.controller;
 
-import com.costa.luiz.profile.domain.FictionalCharacter;
-import com.costa.luiz.profile.domain.CharacterService;
+import com.costa.luiz.comics.domain.FictionalCharacter;
+import com.costa.luiz.comics.domain.CharacterService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;

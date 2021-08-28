@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.domain;
+package com.costa.luiz.comics.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

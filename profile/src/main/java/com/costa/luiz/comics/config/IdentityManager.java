@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.config;
+package com.costa.luiz.comics.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -49,9 +49,9 @@ public class IdentityManager {
             .withUsername(adminValue).password(passwordEncoder.encode(adminValue))
             .roles(Roles.READER.name(), Roles.WRITER.name()).build();
 
-        var stanlLeeValue = "stanLee";
+        var stanLeeValue = "stanLee";
         var stanLee = User
-            .withUsername(stanlLeeValue).password(passwordEncoder.encode(stanlLeeValue))
+            .withUsername(stanLeeValue).password(passwordEncoder.encode(stanLeeValue))
             .roles(Roles.WRITER.name()).build();
 
         return new InMemoryUserDetailsManager(user, admin, stanLee);

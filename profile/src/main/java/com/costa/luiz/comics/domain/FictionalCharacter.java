@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.domain;
+package com.costa.luiz.comics.domain;
 
 import javax.persistence.*;
 

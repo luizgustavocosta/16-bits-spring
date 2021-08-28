@@ -1,4 +1,4 @@
-package com.costa.luiz.profile;
+package com.costa.luiz.comics;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

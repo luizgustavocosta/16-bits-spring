@@ -1,4 +1,4 @@
-package com.costa.luiz.profile.config;
+package com.costa.luiz.comics.config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
