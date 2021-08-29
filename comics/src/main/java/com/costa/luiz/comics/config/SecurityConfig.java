@@ -17,7 +17,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
             .antMatchers("/characters").hasRole(Roles.WRITER.name())
             .anyRequest().authenticated()
             .and()
-            .formLogin().permitAll().and()
+            .httpBasic()
+            .and()
             .logout().permitAll();
     }
 }

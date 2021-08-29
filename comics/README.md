@@ -6,11 +6,11 @@
 
 ## Endpoints
 ``
-http://<server>:8282/comics/preview
+http://localhost:8282/comics/welcome
 ``
 
 ``
-http://<server>:8282/comics/characters
+http://localhost:8282/comics/stories/characters
 ``
 http://localhost:8282/comics/logout
 
