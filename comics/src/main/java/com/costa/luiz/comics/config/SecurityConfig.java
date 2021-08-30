@@ -13,12 +13,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
             .authorizeRequests()
-            .antMatchers("/preview").hasAnyRole(Roles.READER.name(), Roles.WRITER.name())
-            .antMatchers("/characters").hasRole(Roles.WRITER.name())
+            .antMatchers("/").permitAll()
+            .antMatchers("/h2-console/**").permitAll()
+            .antMatchers("/comics/preview").hasAnyRole(Roles.READER.name(), Roles.WRITER.name())
+            .antMatchers("/comics/stories/characters").hasRole(Roles.WRITER.name())
             .anyRequest().authenticated()
             .and()
             .httpBasic()
             .and()
             .logout().permitAll();
+
+        http.csrf().disable();
+        http.headers().frameOptions().disable();
+        http.exceptionHandling().accessDeniedHandler(ComicAccessDeniedHandler.INSTANCE);
     }
 }
