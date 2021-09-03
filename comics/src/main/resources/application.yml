@@ -1,7 +1,5 @@
 server:
   port: 8282
-#  servlet:
-#    context-path: "/comics"
 ---
 spring:
   profiles:
