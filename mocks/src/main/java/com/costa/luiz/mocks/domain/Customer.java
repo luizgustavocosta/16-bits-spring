@@ -15,6 +15,25 @@ public class Customer {
         this.dob = dob;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public String getDob() {
+        return dob;
+    }
 
     public static final class CustomerBuilder {
         private String id;

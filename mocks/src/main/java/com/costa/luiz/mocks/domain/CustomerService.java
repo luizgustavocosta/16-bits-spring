@@ -19,7 +19,6 @@ public class CustomerService {
             .map(this::toDTO)
             .collect(Collectors.toUnmodifiableList());
     }
-
     private Customer toDTO(CustomerEntity entity) {
         return Customer.CustomerBuilder.aCustomer()
             .withId(entity.getId())
