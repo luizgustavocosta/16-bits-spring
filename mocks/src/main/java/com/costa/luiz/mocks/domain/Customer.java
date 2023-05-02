@@ -4,14 +4,12 @@ public class Customer {
     private final String id;
     private final String firstName;
     private final String lastName;
-    private final String fullName;
     private final String dob;
 
-    private Customer(String id, String firstName, String lastName, String fullName, String dob) {
+    private Customer(String id, String firstName, String lastName, String dob) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.fullName = fullName;
         this.dob = dob;
     }
 
@@ -27,10 +25,6 @@ public class Customer {
         return lastName;
     }
 
-    public String getFullName() {
-        return fullName;
-    }
-
     public String getDob() {
         return dob;
     }
@@ -39,7 +33,6 @@ public class Customer {
         private String id;
         private String firstName;
         private String lastName;
-        private String fullName;
         private String dob;
 
         private CustomerBuilder() {
@@ -64,18 +57,13 @@ public class Customer {
             return this;
         }
 
-        public CustomerBuilder withFullName(String fullName) {
-            this.fullName = fullName;
-            return this;
-        }
-
         public CustomerBuilder withDob(String dob) {
             this.dob = dob;
             return this;
         }
 
         public Customer build() {
-            return new Customer(id, firstName, lastName, fullName, dob);
+            return new Customer(id, firstName, lastName, dob);
         }
     }
 }
