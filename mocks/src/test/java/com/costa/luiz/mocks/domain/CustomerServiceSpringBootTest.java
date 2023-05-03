@@ -51,7 +51,7 @@ class CustomerServiceSpringBootTest {
     }
 
     @Test
-    void save() {
+    void create() {
         doNothing().when(publisher).publishEvent(any(CustomerCreatedEvent.class));
 
         customerService.create(Customer.CustomerBuilder.aCustomer()

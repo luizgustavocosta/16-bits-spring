@@ -32,7 +32,7 @@ class CustomerServiceNoMocksSpringBootTest {
 
     @Test
     @Order(2)
-    void save() {
+    void create() {
         customerService.create(Customer.CustomerBuilder.aCustomer()
             .withFirstName("Clark")
             .withLastName("Kent")
