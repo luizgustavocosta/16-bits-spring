@@ -30,7 +30,7 @@ public class PodcastService {
         podcast.setId(UUID.randomUUID().toString());
         podcastPublisher.publish(podcast);
         if (!podcast.getEpisodes().isEmpty()) {
-            podcast.getEpisodes().forEach(episodeService::publish);
+            podcast.getEpisodes().forEach(episodeService::create);
         }
         podcasts.add(podcast);
     }

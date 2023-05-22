@@ -1,24 +1,25 @@
 package com.costa.luiz.events.infra;
 
 import com.costa.luiz.events.domain.Episode;
-import com.costa.luiz.events.domain.EpisodeCreatedEvent;
-import org.springframework.context.ApplicationEventPublisher;
-import org.springframework.stereotype.Component;
+import com.costa.luiz.events.domain.EpisodePublisher;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
-@Component
+@Service
+@Slf4j
 public class EpisodeService {
-    private final ApplicationEventPublisher publisher;
 
-    public EpisodeService(ApplicationEventPublisher publisher) {
-        this.publisher = publisher;
+    private final EpisodePublisher episodePublisher;
+
+    public EpisodeService(EpisodePublisher episodePublisher) {
+        this.episodePublisher = episodePublisher;
     }
 
-    public void publish(Episode episode) {
+    public void create(Episode episode) {
+        log.info("New Episode received");
         episode.setId(UUID.randomUUID().toString());
-        publisher.publishEvent(EpisodeCreatedEvent.builder()
-            .episode(episode)
-            .build());
+        episodePublisher.publish(episode);
     }
 }
